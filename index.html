@@ -3209,36 +3209,17 @@ onAuthStateChanged(auth, async user => {
       applyMaintenanceMode();
       setupMntFeedbackListener();
     } else {
-      // ── Student login ──
-      try {
-        const studentSnap = await getDoc(doc(db,'students',user.uid));
-        if(studentSnap.exists()){
-          const data = studentSnap.data();
-          if(data.status === 'approved'){
-            studentLoggedIn=true; currentStudent=data;
-            hideGate();
-            updateStudentBar(data);
-            // Auto-switch to their group
-            if(data.group && (data.group==='GR1'||data.group==='GR2')){
-              window.switchGroup(data.group);
-            }
-          } else if(data.status === 'rejected'){
-            showGate('rejected');
-          } else {
-            // pending
-            showGate('pending');
-          }
-        } else {
-          // No student doc found — show login error (shouldn't normally happen)
-          await signOut(auth);
-          const le=document.getElementById('gateLoginError');
-          if(le){ le.textContent='❌ Account not found. Please register first.'; le.style.display='block'; }
-          showGate('login');
-        }
-      } catch(e){
-        console.warn('student auth check err',e);
-        showGate('landing');
+      // ── Not an admin — reject and sign out immediately ──
+      await signOut(auth);
+      // Show error on the admin login overlay (the real login form)
+      const errEl = document.getElementById('admLoginErr');
+      if(errEl){
+        errEl.innerHTML = '🚫 <strong>Access denied.</strong> This panel is for admins only. You do not have permission to access this site.';
+        errEl.style.display = 'block';
       }
+      // Clear password field for security
+      const pw = document.getElementById('admPassword');
+      if(pw) pw.value = '';
     }
   } else {
     // ── Logged out ──
@@ -3253,13 +3234,16 @@ onAuthStateChanged(auth, async user => {
     // Show admin login overlay again (not student gate)
     const loginOv = document.getElementById('adminLoginOverlay');
     if(loginOv) loginOv.classList.remove('hidden');
-    // Clear login fields
+    // Clear login fields (modal)
     const em = document.getElementById('loginEmail');
     const pw = document.getElementById('loginPassword');
     const er = document.getElementById('loginError');
     if(em) em.value='';
     if(pw) pw.value='';
     if(er){ er.style.display='none'; er.textContent=''; }
+    // Clear overlay password (email stays so admin can retry quickly)
+    const admPw = document.getElementById('admPassword');
+    if(admPw) admPw.value='';
   }
 });
 
