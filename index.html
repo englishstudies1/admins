@@ -2887,6 +2887,10 @@ window.doAdminOverlayLogin = async function(){
 };
 
 function activateAdminMode(){
+  // Hide loading overlay immediately — admin doesn't need to wait for init
+  const ov = document.getElementById('loadingOverlay');
+  if(ov){ ov.classList.add('hidden'); setTimeout(()=>{ ov.style.display='none'; }, 400); }
+
   document.body.classList.add('admin-mode');
   const overlay = document.getElementById('adminLoginOverlay');
   if(overlay) overlay.classList.add('hidden');
@@ -3158,7 +3162,7 @@ window.doStudentRegister = async function(){
 
 // ══ LOGIN — Firebase Auth (Admin) ══
 window.openLoginModal = function(){
-  if(adminUnlocked){ document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'}); return; }
+  if(adminUnlocked){ return; } // panel is already a fixed overlay, nothing to scroll to
   // Always ensure modal appears above gate overlay
   const m = document.getElementById('loginModal');
   if(m) m.style.zIndex='10600';
@@ -3202,7 +3206,6 @@ onAuthStateChanged(auth, async user => {
       document.getElementById('adminWho').innerHTML=`${acc.name} <span style="background:${grBg};color:${grColor};padding:2px 10px;border-radius:100px;font-size:11px;font-weight:800;">${acc.role}</span>`;
       document.getElementById('adminPanel').classList.add('open');
       renderAdminPanel();
-      document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'});
       applyMaintenanceMode();
       setupMntFeedbackListener();
     } else {
@@ -3241,9 +3244,22 @@ onAuthStateChanged(auth, async user => {
     // ── Logged out ──
     adminUnlocked=false; currentAdmin=null;
     studentLoggedIn=false; currentStudent=null;
+
+    // Remove admin-mode so nav/site restores properly
+    document.body.classList.remove('admin-mode');
     document.getElementById('adminPanel').classList.remove('open');
     updateStudentBar(null);
-    // Gate is shown by init() after loading completes if not authenticated
+
+    // Show admin login overlay again (not student gate)
+    const loginOv = document.getElementById('adminLoginOverlay');
+    if(loginOv) loginOv.classList.remove('hidden');
+    // Clear login fields
+    const em = document.getElementById('loginEmail');
+    const pw = document.getElementById('loginPassword');
+    const er = document.getElementById('loginError');
+    if(em) em.value='';
+    if(pw) pw.value='';
+    if(er){ er.style.display='none'; er.textContent=''; }
   }
 });
 
