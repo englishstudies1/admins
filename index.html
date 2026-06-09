@@ -2929,7 +2929,12 @@ let firestoreAdmins = {}; // email -> {name, role}
 async function loadFirestoreAdmins(){
   try {
     const snap = await getDocs(collection(db,'admins'));
-    snap.docs.forEach(d => { firestoreAdmins[d.id] = d.data(); });
+    snap.docs.forEach(d => {
+      const data = d.data();
+      // Use stored email field (real dots) as key; fall back to converting _ back to . for old records
+      const key = (data.email || d.id.replace(/_/g,'.')).toLowerCase();
+      firestoreAdmins[key] = data;
+    });
   } catch(e){ console.warn('loadFirestoreAdmins err',e); }
 }
 function getAllAdmins(){ return {...ADMIN_EMAILS, ...firestoreAdmins}; }
