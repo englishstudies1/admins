@@ -2274,23 +2274,23 @@ footer::after{
       <!-- Content -->
       <div class="adm-nav-group">
         <div class="adm-nav-group-label">Content</div>
-        <div class="adm-nav-item active" onclick="switchAdminTab('announcements',this)">
+        <div class="adm-nav-item active" data-tab="announcements" onclick="switchAdminTab('announcements',this)">
           <span class="adm-nav-icon">📢</span>
           <span class="adm-nav-label">Announcements</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('lessons',this)">
+        <div class="adm-nav-item" data-tab="lessons" onclick="switchAdminTab('lessons',this)">
           <span class="adm-nav-icon">📚</span>
           <span class="adm-nav-label">Lessons</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('exams-admin',this)">
+        <div class="adm-nav-item" data-tab="exams-admin" onclick="switchAdminTab('exams-admin',this)">
           <span class="adm-nav-icon">📝</span>
           <span class="adm-nav-label">Past Exams</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('timetable',this)">
+        <div class="adm-nav-item" data-tab="timetable" onclick="switchAdminTab('timetable',this)">
           <span class="adm-nav-icon">📅</span>
           <span class="adm-nav-label">Timetable</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('makeup',this)">
+        <div class="adm-nav-item" data-tab="makeup" onclick="switchAdminTab('makeup',this)">
           <span class="adm-nav-icon">🔄</span>
           <span class="adm-nav-label">Makeup Sessions</span>
         </div>
@@ -2301,19 +2301,19 @@ footer::after{
       <!-- Students -->
       <div class="adm-nav-group">
         <div class="adm-nav-group-label">Students</div>
-        <div class="adm-nav-item" onclick="switchAdminTab('students-admin',this);renderAdminStudents();">
+        <div class="adm-nav-item" data-tab="students-admin" onclick="switchAdminTab('students-admin',this);renderAdminStudents();">
           <span class="adm-nav-icon">👤</span>
           <span class="adm-nav-label">Students</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('comments',this)">
+        <div class="adm-nav-item" data-tab="comments" onclick="switchAdminTab('comments',this)">
           <span class="adm-nav-icon">💬</span>
           <span class="adm-nav-label">Comments</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('sondage-admin',this)">
+        <div class="adm-nav-item" data-tab="sondage-admin" onclick="switchAdminTab('sondage-admin',this)">
           <span class="adm-nav-icon">📋</span>
           <span class="adm-nav-label">Sondage</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('notifs-admin',this);renderAdminNotifs();">
+        <div class="adm-nav-item" data-tab="notifs-admin" onclick="switchAdminTab('notifs-admin',this);renderAdminNotifs();">
           <span class="adm-nav-icon">🔔</span>
           <span class="adm-nav-label">Notifications</span>
         </div>
@@ -2324,19 +2324,19 @@ footer::after{
       <!-- Configure -->
       <div class="adm-nav-group">
         <div class="adm-nav-group-label">Configure</div>
-        <div class="adm-nav-item" onclick="switchAdminTab('settings',this)">
+        <div class="adm-nav-item" data-tab="settings" onclick="switchAdminTab('settings',this)">
           <span class="adm-nav-icon">⚙️</span>
           <span class="adm-nav-label">Settings</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('space-admin',this);renderAdminSpace();">
+        <div class="adm-nav-item" data-tab="space-admin" onclick="switchAdminTab('space-admin',this);renderAdminSpace();">
           <span class="adm-nav-icon">👥</span>
           <span class="adm-nav-label">Student Space</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('about-admin',this);renderAdminAbout();">
+        <div class="adm-nav-item" data-tab="about-admin" onclick="switchAdminTab('about-admin',this);renderAdminAbout();">
           <span class="adm-nav-icon">ℹ️</span>
           <span class="adm-nav-label">About Page</span>
         </div>
-        <div class="adm-nav-item maintenance-nav" onclick="switchAdminTab('maintenance-admin',this);renderAdminMaintenance();">
+        <div class="adm-nav-item maintenance-nav" data-tab="maintenance-admin" onclick="switchAdminTab('maintenance-admin',this);renderAdminMaintenance();">
           <span class="adm-nav-icon">🔧</span>
           <span class="adm-nav-label">Maintenance</span>
         </div>
@@ -2347,15 +2347,15 @@ footer::after{
       <!-- Tools -->
       <div class="adm-nav-group">
         <div class="adm-nav-group-label">Tools</div>
-        <div class="adm-nav-item" onclick="switchAdminTab('practice-admin',this);renderAdminPractice();">
+        <div class="adm-nav-item" data-tab="practice-admin" onclick="switchAdminTab('practice-admin',this);renderAdminPractice();">
           <span class="adm-nav-icon">🧪</span>
           <span class="adm-nav-label">Practice Exams</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('stats-admin',this);renderAdminStats();">
+        <div class="adm-nav-item" data-tab="stats-admin" onclick="switchAdminTab('stats-admin',this);renderAdminStats();">
           <span class="adm-nav-icon">📊</span>
           <span class="adm-nav-label">Statistics</span>
         </div>
-        <div class="adm-nav-item" onclick="switchAdminTab('admins-admin',this);renderAdminAdmins();">
+        <div class="adm-nav-item" data-tab="admins-admin" onclick="switchAdminTab('admins-admin',this);renderAdminAdmins();">
           <span class="adm-nav-icon">🛡️</span>
           <span class="adm-nav-label">Admins</span>
         </div>
@@ -2370,6 +2370,14 @@ footer::after{
       <div class="admin-section-content active" id="admin-announcements">
         <h2 style="font-family:var(--theme-font-display);font-size:20px;font-weight:800;color:var(--navy);margin-bottom:4px;letter-spacing:-.3px;">📢 Announcements</h2>
         <p style="font-size:12.5px;color:var(--muted);margin-bottom:18px;">Publish and manage announcements for GR1, GR2, or both groups.</p>
+        <div style="background:#f8fafc;border:1.5px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:180px;">
+            <label style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:4px;">✍️ Your announcement name</label>
+            <input type="text" id="myAnnNameInput" placeholder="e.g. Fatima" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:9px;font-family:inherit;font-size:13px;outline:none;box-sizing:border-box;">
+          </div>
+          <button class="add-btn" style="margin:0;" onclick="saveMyAnnounceName()"><i class="fas fa-save"></i> Save</button>
+          <p style="width:100%;font-size:11px;color:var(--muted);margin:2px 0 0;">Shows on announcements you publish. Set it once — no need to re-enter it every time.</p>
+        </div>
         <button class="add-btn" onclick="openModal('addAnnModal')"><i class="fas fa-plus"></i> New Announcement</button>
         <p style="font-size:12px;color:var(--muted);margin-bottom:12px;"><i class="fas fa-grip-vertical"></i> Drag items to reorder</p>
         <div id="adminAnnList"></div>
@@ -2681,7 +2689,7 @@ footer::after{
   <div class="modal">
     <h3>Add Lesson File</h3>
     <p class="sub">Importez depuis Google Drive ou collez n'importe quel lien public.</p>
-    <select id="lessonSemInput" onchange="populateLessonMods()"><option value="S1">Semester 1</option><option value="S2">Semester 2</option></select>
+    <select id="lessonSemInput" onchange="populateLessonMods()"><option value="S1">Semester 1</option><option value="S2">Semester 2</option><option value="S3">Semester 3</option><option value="S4">Semester 4</option><option value="S5">Semester 5</option><option value="S6">Semester 6</option></select>
     <select id="lessonModInput"></select>
     <input type="text" id="lessonNameInput" placeholder="Nom du fichier (ex: Grammar Lesson 3)">
     <div style="position:relative;">
@@ -2699,7 +2707,7 @@ footer::after{
 <div class="modal-overlay" id="addExamModal">
   <div class="modal">
     <h3>Add Exam File</h3><p class="sub">Paste a Google Drive or any public link.</p>
-    <select id="examSemInput" onchange="populateExamMods()"><option value="S1">Semester 1</option><option value="S2">Semester 2</option></select>
+    <select id="examSemInput" onchange="populateExamMods()"><option value="S1">Semester 1</option><option value="S2">Semester 2</option><option value="S3">Semester 3</option><option value="S4">Semester 4</option><option value="S5">Semester 5</option><option value="S6">Semester 6</option></select>
     <select id="examModInput"></select>
     <input type="text" id="examNameInput" placeholder="File name (e.g., Grammar Exam 2024)">
     <input type="url" id="examUrlInput" placeholder="https://drive.google.com/...">
@@ -2984,6 +2992,7 @@ let siteSettings = {
   presDriveLink: '',
   subDriveLink: '',
   adminCommentNames: {},
+  adminAnnounceNames: {},
   // Header branding
   logoIcon: 'fas fa-graduation-cap',
   logoIconSize: 20,
@@ -3201,7 +3210,7 @@ onAuthStateChanged(auth, async user => {
     if(acc){
       // ── Admin login ──
       adminUnlocked=true;
-      currentAdmin={email:user.email, name:acc.name, role:acc.role};
+      currentAdmin={email:user.email, name:acc.name, role:acc.role, access: acc.isSuperAdmin ? 'full' : (acc.access || 'full')};
       closeModal('loginModal');
       hideGate();
       updateStudentBar(null);
@@ -3211,6 +3220,8 @@ onAuthStateChanged(auth, async user => {
       document.getElementById('adminWho').innerHTML=`${acc.name} <span style="background:${grBg};color:${grColor};padding:2px 10px;border-radius:100px;font-size:11px;font-weight:800;">${acc.role}</span>`;
       document.getElementById('adminPanel').classList.add('open');
       renderAdminPanel();
+      applyAdminAccessUI();
+      renderMyAnnounceName();
       applyMaintenanceMode();
       setupMntFeedbackListener();
     } else {
@@ -3320,6 +3331,7 @@ function applySettingsData(d){
   siteSettings.presDriveLink = d.presDriveLink||'';
   siteSettings.subDriveLink  = d.subDriveLink||'';
   siteSettings.adminCommentNames = d.adminCommentNames||{};
+  siteSettings.adminAnnounceNames = d.adminAnnounceNames||{};
   siteSettings.sectionOrder      = d.sectionOrder||[];
   // About page content
   siteSettings.aboutPageTitle    = d.aboutPageTitle||'About Us';
@@ -4493,6 +4505,21 @@ window.saveAdminCommentNames = async function(){
   });
   await saveSettings();
   alert('✅ Display names saved!');
+};
+window.renderMyAnnounceName = function(){
+  const inp = document.getElementById('myAnnNameInput');
+  if(!inp || !currentAdmin) return;
+  inp.value = (siteSettings.adminAnnounceNames && siteSettings.adminAnnounceNames[currentAdmin.email]) || currentAdmin.name || '';
+};
+window.saveMyAnnounceName = async function(){
+  const inp = document.getElementById('myAnnNameInput');
+  if(!inp || !currentAdmin) return;
+  const val = inp.value.trim();
+  if(!val){ showToast('❌ Enter a name.'); return; }
+  if(!siteSettings.adminAnnounceNames) siteSettings.adminAnnounceNames = {};
+  siteSettings.adminAnnounceNames[currentAdmin.email] = val;
+  await saveSettings();
+  showToast('✅ Your announcement name is saved!');
 };
 
 // ══ ICON PICKER RENDERERS (avoid nested template literals) ══
@@ -6346,11 +6373,21 @@ window.switchAdminTab=function(tab,el){
   if(tab==='stats-admin'){ renderAdminStats(); }
   if(tab==='maintenance-admin'){ renderAdminMaintenance(); }
   if(tab==='practice-admin'){ renderAdminPractice(); }
+  if(tab==='announcements'){ renderMyAnnounceName(); }
+};
+// Short-access admins only get: Announcements, Lessons, Timetable, Makeup Sessions.
+// Full-access admins (and super-admins) see everything, unchanged from prior behavior.
+window.applyAdminAccessUI = function(){
+  if(!currentAdmin || currentAdmin.access !== 'short') return;
+  const allowed = ['announcements','lessons','timetable','makeup'];
+  document.querySelectorAll('.adm-nav-item[data-tab]').forEach(item=>{
+    if(!allowed.includes(item.dataset.tab)) item.style.display='none';
+  });
 };
 
 function renderAdminAnn(){
   const el=document.getElementById('adminAnnList');
-  const adminGR = currentAdmin ? currentAdmin.role : null;
+  const adminGR = (currentAdmin && currentAdmin.role !== 'Both') ? currentAdmin.role : null;
   const visible = announcements.filter(a=>!adminGR || a.group==='Both' || a.group===adminGR);
   if(!visible.length){el.innerHTML='<p style="color:var(--muted);font-size:13px;">No announcements.</p>';return;}
   const logoIco = siteSettings.pubIcon||'fas fa-university';
@@ -6373,7 +6410,7 @@ function renderAdminAnn(){
           <span class="post-admin-symbol" title="Admin post"><i class="fas fa-shield-alt" style="font-size:8px;"></i></span>
           <strong>${a.title}</strong>
         </div>
-        <span>${dt} · <span style="background:${grColor};color:${grText};padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${a.group}</span> · ${a.type} · 👁 ${a.views||0} · ❤️ ${a.likes||0}${a.targetStudents&&a.targetStudents.length?` · <span style="color:var(--royal);font-weight:800;">🎯 ${a.targetStudents.length} targeted</span>`:''}</span>
+        <span>${dt} · <span style="background:${grColor};color:${grText};padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${a.group}</span>${a.postedBy?` · ✍️ ${escapeHtml(a.postedBy)}`:''} · ${a.type} · 👁 ${a.views||0} · ❤️ ${a.likes||0}${a.targetStudents&&a.targetStudents.length?` · <span style="color:var(--royal);font-weight:800;">🎯 ${a.targetStudents.length} targeted</span>`:''}</span>
       </div>
       <div class="admin-item-actions" style="position:relative;z-index:10;">
         <button class="edit-btn" title="Engagement" onclick="event.stopPropagation();showAnnEngagement('${a.id}','${(a.title||'').replace(/'/g,"\\'")}')"><i class="fas fa-chart-bar"></i></button>
@@ -6407,7 +6444,7 @@ window.populateExamMods=function(){const sem=document.getElementById('examSemInp
 
 function renderAdminLessons(sem){
   const el=document.getElementById('adminLessonList');
-  const adminGR = currentAdmin ? currentAdmin.role : null;
+  const adminGR = (currentAdmin && currentAdmin.role !== 'Both') ? currentAdmin.role : null;
   el.innerHTML=`<button class="add-btn" onclick="openAddLesson('${sem}')"><i class="fas fa-plus"></i> Add Lesson File</button>`;
   MODS[sem].forEach(m=>{
     const allFiles=lessons.filter(f=>f.sem===sem&&f.mod===m);
@@ -6435,7 +6472,7 @@ function renderAdminLessons(sem){
 
 function renderAdminExams(sem){
   const el=document.getElementById('adminExamList');
-  const adminGR = currentAdmin ? currentAdmin.role : null;
+  const adminGR = (currentAdmin && currentAdmin.role !== 'Both') ? currentAdmin.role : null;
   el.innerHTML=`<button class="add-btn" onclick="openAddExam('${sem}')"><i class="fas fa-plus"></i> Add Exam File</button>`;
   MODS[sem].forEach(m=>{
     const allFiles=exams.filter(f=>f.sem===sem&&f.mod===m);
@@ -6454,7 +6491,7 @@ window.toggleAdminMod=function(id){document.getElementById(id).classList.toggle(
 
 function renderAdminTT(){
   const el=document.getElementById('adminTTList');let html='';
-  const adminGR = currentAdmin ? currentAdmin.role : null;
+  const adminGR = (currentAdmin && currentAdmin.role !== 'Both') ? currentAdmin.role : null;
   const groups = adminGR ? [adminGR] : ['GR1','GR2'];
   groups.forEach(gr=>['S1','S2','S3','S4','S5','S6'].filter(s=>!siteSettings.hiddenSems.includes(s)).forEach(sem=>{
     const rows=timetable.filter(r=>r.gr===gr&&r.sem===sem);
@@ -6495,7 +6532,7 @@ window.moveMakeup=async function(id,dir){
 
 function renderAdminMakeup(){
   const el=document.getElementById('adminMakeupList');
-  const adminGR = currentAdmin ? currentAdmin.role : null;
+  const adminGR = (currentAdmin && currentAdmin.role !== 'Both') ? currentAdmin.role : null;
   const visible = makeupSessions.filter(s=>!adminGR||s.group==='Both'||s.group===adminGR);
   if(!visible.length){el.innerHTML='<p style="color:var(--muted);font-size:13px;">No sessions.</p>';return;}
   el.innerHTML=visible.map((s,idx)=>{
@@ -6806,6 +6843,7 @@ window.saveAnn=async function(){
       time:document.getElementById('annTimeInput').value,
       order: announcements.length ? Math.min(...announcements.map(a=>a.order??0)) - 1 : 0,
       views:0,likes:0,imgUrl:'',
+      postedBy: (currentAdmin && siteSettings.adminAnnounceNames && siteSettings.adminAnnounceNames[currentAdmin.email]) || (currentAdmin ? currentAdmin.name : '') || '',
       targetStudents: targetStudents.length ? targetStudents : []
     });
     if(file){
@@ -7922,16 +7960,25 @@ window.renderAdminAdmins = async function(){
     </div>`).join('');
 
   const fsAdminEntries = Object.entries(firestoreAdmins);
-  const fsAdminList = fsAdminEntries.length ? fsAdminEntries.map(([email, acc])=>`
+  const fsAdminList = fsAdminEntries.length ? fsAdminEntries.map(([email, acc])=>{
+    const isShort = acc.access === 'short';
+    const accessBadge = isShort
+      ? `<span style="background:#fef3c7;color:#92400e;font-size:9px;font-weight:800;padding:1px 7px;border-radius:100px;margin-left:4px;">SHORT ACCESS</span>`
+      : `<span style="background:#dcfce7;color:#166534;font-size:9px;font-weight:800;padding:1px 7px;border-radius:100px;margin-left:4px;">FULL ACCESS</span>`;
+    return `
     <div style="background:white;border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
       <div style="width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--navy),var(--royal));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:15px;flex-shrink:0;">${(acc.name||'?').charAt(0)}</div>
       <div style="flex:1;">
-        <div style="font-size:13.5px;font-weight:800;color:var(--navy);">${escapeHtml(acc.name)}</div>
+        <div style="font-size:13.5px;font-weight:800;color:var(--navy);">${escapeHtml(acc.name)}${accessBadge}</div>
         <div style="font-size:12px;color:var(--muted);">${escapeHtml(email)} · ${escapeHtml(acc.role||'All')}</div>
         ${acc.addedAt ? `<div style="font-size:11px;color:var(--muted);">Added: ${new Date(acc.addedAt).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div>` : ''}
       </div>
-      ${isSuperAdmin ? `<button onclick="removeFirestoreAdmin('${email.replace(/'/g,"\\'")}')" style="padding:6px 14px;background:#fee2e2;color:#991b1b;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;white-space:nowrap;">Remove</button>` : ''}
-    </div>`).join('') : '<p style="font-size:13px;color:var(--muted);font-style:italic;">No additional admins yet.</p>';
+      ${isSuperAdmin ? `<div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <button onclick="toggleAdminAccess('${email.replace(/'/g,"\\'")}')" style="padding:6px 14px;background:#eef2ff;color:#3730a3;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;white-space:nowrap;">Switch to ${isShort?'Full':'Short'}</button>
+        <button onclick="removeFirestoreAdmin('${email.replace(/'/g,"\\'")}')" style="padding:6px 14px;background:#fee2e2;color:#991b1b;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;white-space:nowrap;">Remove</button>
+      </div>` : ''}
+    </div>`;
+  }).join('') : '<p style="font-size:13px;color:var(--muted);font-style:italic;">No additional admins yet.</p>';
 
   el.innerHTML = `
     <h4 style="font-size:14px;font-weight:800;color:var(--navy);margin-bottom:4px;">🛡 Admin Management</h4>
@@ -7959,6 +8006,13 @@ window.renderAdminAdmins = async function(){
           <option value="Both">Both Groups</option>
         </select>
       </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:4px;">Panel Access</label>
+        <select id="newAdminAccess" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:9px;font-family:inherit;font-size:13px;outline:none;background:white;">
+          <option value="full">Full Access — whole admin panel</option>
+          <option value="short">Short Access — Announcements, Lessons, Timetable, Makeup only</option>
+        </select>
+      </div>
       <p style="font-size:11.5px;color:var(--muted);margin-bottom:10px;">⚠️ The person must register on the site first, then you approve them here as an admin.</p>
       <button onclick="addFirestoreAdmin()" style="padding:10px 22px;background:linear-gradient(135deg,var(--navy),var(--royal));color:white;border:none;border-radius:10px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;">Add Admin</button>
     </div>` : '<div style="background:#fff7ed;border:1.5px solid #fed7aa;border-radius:12px;padding:14px 16px;font-size:13px;color:#92400e;margin-bottom:20px;">⚠️ Only super-admins can add or remove admins.</div>'}
@@ -7981,15 +8035,16 @@ window.addFirestoreAdmin = async function(){
   const email = (document.getElementById('newAdminEmail').value||'').trim().toLowerCase();
   const name  = (document.getElementById('newAdminName').value||'').trim();
   const role  = (document.getElementById('newAdminRole').value||'Both');
+  const access = (document.getElementById('newAdminAccess').value||'full');
   if(!email||!name){ showToast('❌ Fill in email and name.'); return; }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showToast('❌ Invalid email.'); return; }
   if(ADMIN_EMAILS[email]){ showToast('❌ Already a super-admin.'); return; }
   try {
     const docId = email.replace(/\./g,'_');
     await setDoc(doc(db,'admins',docId),{
-      email, name, role, addedAt: Date.now(), addedBy: currentAdmin?.email||''
+      email, name, role, access, addedAt: Date.now(), addedBy: currentAdmin?.email||''
     });
-    firestoreAdmins[email] = {name, role};
+    firestoreAdmins[email] = {name, role, access};
     showToast('✅ Admin added!');
     renderAdminAdmins();
   } catch(e){ showToast('❌ Error: '+e.message); }
@@ -8002,6 +8057,18 @@ window.removeFirestoreAdmin = async function(email){
     await deleteDoc(doc(db,'admins',docId));
     delete firestoreAdmins[email];
     showToast('✅ Admin removed.');
+    renderAdminAdmins();
+  } catch(e){ showToast('❌ Error: '+e.message); }
+};
+window.toggleAdminAccess = async function(email){
+  const acc = firestoreAdmins[email];
+  if(!acc) return;
+  const newAccess = acc.access === 'short' ? 'full' : 'short';
+  try {
+    const docId = email.replace(/\./g,'_');
+    await updateDoc(doc(db,'admins',docId), {access: newAccess});
+    firestoreAdmins[email] = {...acc, access: newAccess};
+    showToast(`✅ ${acc.name} is now ${newAccess==='short'?'Short':'Full'} Access.`);
     renderAdminAdmins();
   } catch(e){ showToast('❌ Error: '+e.message); }
 };
