@@ -2600,6 +2600,7 @@ footer::after{
     </div>
     <select id="annGroupInput"><option value="Both">Both GR1 &amp; GR2</option><option value="GR1">GR1 Only</option><option value="GR2">GR2 Only</option></select>
     <select id="annTypeInput"><option value="general">General</option><option value="info">Info</option><option value="urgent">Urgent</option></select>
+    <select id="annSemInput"><option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option><option value="S4">S4</option><option value="S5">S5</option><option value="S6">S6</option><option value="All">All</option></select>
     <!-- Target specific students -->
     <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);cursor:pointer;margin:6px 0 4px;font-weight:600;">
       <input type="checkbox" id="annTargetToggle" onchange="toggleAnnTargetPicker('add')" style="width:15px;height:15px;accent-color:var(--royal);cursor:pointer;">
@@ -2612,10 +2613,12 @@ footer::after{
       </div>
     </div>
     <!-- Manual date + time -->
-    <label style="font-size:12px;color:var(--muted);margin-bottom:4px;display:block;">Date &amp; Time (manual)</label>
-    <div style="display:flex;gap:8px;">
-      <input type="date" id="annDateInput" style="flex:1;">
-      <input type="time" id="annTimeInput" style="flex:1;">
+    <div id="annManualDateTimeSection">
+      <label style="font-size:12px;color:var(--muted);margin-bottom:4px;display:block;">Date &amp; Time (manual)</label>
+      <div style="display:flex;gap:8px;">
+        <input type="date" id="annDateInput" style="flex:1;">
+        <input type="time" id="annTimeInput" style="flex:1;">
+      </div>
     </div>
     <label style="font-size:12px;color:var(--muted);margin:8px 0 4px;display:block;">📷 Photo (optional)</label>
     <div class="img-upload-area" id="addImgArea" onclick="document.getElementById('addImgFile').click()">
@@ -2662,14 +2665,19 @@ footer::after{
     </div>
     <select id="editAnnGroup"><option value="Both">Both GR1 &amp; GR2</option><option value="GR1">GR1 Only</option><option value="GR2">GR2 Only</option></select>
     <select id="editAnnType"><option value="general">General</option><option value="info">Info</option><option value="urgent">Urgent</option></select>
-    <div style="display:flex;gap:8px;">
-      <input type="date" id="editAnnDate" style="flex:1;">
-      <input type="time" id="editAnnTime" style="flex:1;">
+    <select id="editAnnSem"><option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option><option value="S4">S4</option><option value="S5">S5</option><option value="S6">S6</option><option value="All">All</option></select>
+    <div id="editAnnDateTimeSection">
+      <div style="display:flex;gap:8px;">
+        <input type="date" id="editAnnDate" style="flex:1;">
+        <input type="time" id="editAnnTime" style="flex:1;">
+      </div>
     </div>
-    <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px;">Manual override: Views &amp; Likes</label>
-    <div style="display:flex;gap:8px;">
-      <input type="number" id="editAnnViews" placeholder="Views" min="0" style="flex:1;">
-      <input type="number" id="editAnnLikes" placeholder="Likes" min="0" style="flex:1;">
+    <div id="editAnnViewsLikesSection">
+      <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px;">Manual override: Views &amp; Likes</label>
+      <div style="display:flex;gap:8px;">
+        <input type="number" id="editAnnViews" placeholder="Views" min="0" style="flex:1;">
+        <input type="number" id="editAnnLikes" placeholder="Likes" min="0" style="flex:1;">
+      </div>
     </div>
     <label style="font-size:12px;color:var(--muted);margin:8px 0 4px;display:block;">📷 Photo (optional)</label>
     <div class="img-upload-area" id="editImgArea" onclick="document.getElementById('editImgFile').click()">
@@ -2741,6 +2749,7 @@ footer::after{
     <input type="text" id="makeupAmphiInput" placeholder="Amphi / Room (e.g., Amphi A)">
     <input type="text" id="makeupDescInput" placeholder="Extra note (optional)">
     <select id="makeupGroupInput"><option value="Both">Both GR1 &amp; GR2</option><option value="GR1">GR1 Only</option><option value="GR2">GR2 Only</option></select>
+    <select id="makeupSemInput"><option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option><option value="S4">S4</option><option value="S5">S5</option><option value="S6">S6</option><option value="All">All</option></select>
     <div class="modal-actions"><button class="modal-btn modal-btn-cancel" onclick="closeModal('addMakeupModal')">Cancel</button><button class="modal-btn modal-btn-save" onclick="saveMakeup()">Add Session</button></div>
   </div>
 </div>
@@ -2770,10 +2779,13 @@ footer::after{
     <input type="text" id="editMakeupAmphi" placeholder="Amphi / Room">
     <input type="text" id="editMakeupDesc" placeholder="Extra note (optional)">
     <select id="editMakeupGroup"><option value="Both">Both GR1 &amp; GR2</option><option value="GR1">GR1 Only</option><option value="GR2">GR2 Only</option></select>
-    <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px;">Manual override: Views &amp; Likes</label>
-    <div style="display:flex;gap:8px;">
-      <input type="number" id="editMakeupViews" placeholder="Views count" min="0" style="flex:1;">
-      <input type="number" id="editMakeupLikes" placeholder="Likes count" min="0" style="flex:1;">
+    <select id="editMakeupSem"><option value="S1">S1</option><option value="S2">S2</option><option value="S3">S3</option><option value="S4">S4</option><option value="S5">S5</option><option value="S6">S6</option><option value="All">All</option></select>
+    <div id="editMakeupViewsLikesSection">
+      <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px;">Manual override: Views &amp; Likes</label>
+      <div style="display:flex;gap:8px;">
+        <input type="number" id="editMakeupViews" placeholder="Views count" min="0" style="flex:1;">
+        <input type="number" id="editMakeupLikes" placeholder="Likes count" min="0" style="flex:1;">
+      </div>
     </div>
     <div class="modal-actions"><button class="modal-btn modal-btn-cancel" onclick="closeModal('editMakeupModal')">Cancel</button><button class="modal-btn modal-btn-save" onclick="updateMakeup()">Save Changes</button></div>
   </div>
@@ -6383,6 +6395,14 @@ window.applyAdminAccessUI = function(){
   document.querySelectorAll('.adm-nav-item[data-tab]').forEach(item=>{
     if(!allowed.includes(item.dataset.tab)) item.style.display='none';
   });
+  const manualDT = document.getElementById('annManualDateTimeSection');
+  if(manualDT) manualDT.style.display='none';
+  const editDT = document.getElementById('editAnnDateTimeSection');
+  if(editDT) editDT.style.display='none';
+  const editVL = document.getElementById('editAnnViewsLikesSection');
+  if(editVL) editVL.style.display='none';
+  const editMakeupVL = document.getElementById('editMakeupViewsLikesSection');
+  if(editMakeupVL) editMakeupVL.style.display='none';
 };
 
 function renderAdminAnn(){
@@ -6410,7 +6430,7 @@ function renderAdminAnn(){
           <span class="post-admin-symbol" title="Admin post"><i class="fas fa-shield-alt" style="font-size:8px;"></i></span>
           <strong>${a.title}</strong>
         </div>
-        <span>${dt} · <span style="background:${grColor};color:${grText};padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${a.group}</span>${a.postedBy?` · ✍️ ${escapeHtml(a.postedBy)}`:''} · ${a.type} · 👁 ${a.views||0} · ❤️ ${a.likes||0}${a.targetStudents&&a.targetStudents.length?` · <span style="color:var(--royal);font-weight:800;">🎯 ${a.targetStudents.length} targeted</span>`:''}</span>
+        <span>${dt} · <span style="background:${grColor};color:${grText};padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${a.group}</span> <span style="background:#eef2ff;color:#3730a3;padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${a.sem||'S1'}</span>${a.postedBy?` · ✍️ ${escapeHtml(a.postedBy)}`:''} · ${a.type} · 👁 ${a.views||0} · ❤️ ${a.likes||0}${a.targetStudents&&a.targetStudents.length?` · <span style="color:var(--royal);font-weight:800;">🎯 ${a.targetStudents.length} targeted</span>`:''}</span>
       </div>
       <div class="admin-item-actions" style="position:relative;z-index:10;">
         <button class="edit-btn" title="Engagement" onclick="event.stopPropagation();showAnnEngagement('${a.id}','${(a.title||'').replace(/'/g,"\\'")}')"><i class="fas fa-chart-bar"></i></button>
@@ -6547,7 +6567,7 @@ function renderAdminMakeup(){
       </div>
       <div class="admin-item-info">
         <strong>${title}</strong>
-        <span>${s.date}${s.mtime?' · '+s.mtime:''} · <span style="background:${grColor};color:${grText};padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${s.group}</span> · 👁 ${s.views||0} · ❤️ ${s.likes||0}</span>
+        <span>${s.date}${s.mtime?' · '+s.mtime:''} · <span style="background:${grColor};color:${grText};padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${s.group}</span> <span style="background:#eef2ff;color:#3730a3;padding:1px 7px;border-radius:100px;font-weight:700;font-size:11px;">${s.sem||'S1'}</span> · 👁 ${s.views||0} · ❤️ ${s.likes||0}</span>
       </div>
       <div class="admin-item-actions">
         <button class="edit-btn" onclick="openEditMakeup('${s.id}')"><i class="fas fa-pen"></i></button>
@@ -6582,6 +6602,7 @@ window.openEditAnn=function(id){
   document.getElementById('editAnnTitle').value=a.title||'';
   document.getElementById('editAnnGroup').value=a.group||'Both';
   document.getElementById('editAnnType').value=a.type||'general';
+  document.getElementById('editAnnSem').value=a.sem||'S1';
   document.getElementById('editAnnDate').value=a.date||'';
   document.getElementById('editAnnTime').value=a.time||'';
   document.getElementById('editAnnViews').value=a.views||0;
@@ -6611,7 +6632,7 @@ window.updateAnn=async function(){
     try{ imgUrl=await uploadAnnImg(file,id,'editUploadBar','editUploadProgress'); }
     catch(e){ console.warn('img upload err',e); }
   }
-  await updateDoc(doc(db,'announcements',id),{title,text,group:document.getElementById('editAnnGroup').value,type:document.getElementById('editAnnType').value,date:document.getElementById('editAnnDate').value,time:document.getElementById('editAnnTime').value,views:views_a,likes:likes_a,imgUrl});
+  await updateDoc(doc(db,'announcements',id),{title,text,group:document.getElementById('editAnnGroup').value,type:document.getElementById('editAnnType').value,sem:document.getElementById('editAnnSem').value,date:document.getElementById('editAnnDate').value,time:document.getElementById('editAnnTime').value,views:views_a,likes:likes_a,imgUrl});
   closeModal('editAnnModal');
   document.getElementById('editEditor').innerHTML='';
   removeImg('editImgArea','editImgFile','editImgPreview');
@@ -6648,6 +6669,7 @@ window.openEditMakeup=function(id){
   document.getElementById('editMakeupAmphi').value=s.amphi||'';
   document.getElementById('editMakeupDesc').value=s.desc||'';
   document.getElementById('editMakeupGroup').value=s.group||'Both';
+  document.getElementById('editMakeupSem').value=s.sem||'S1';
   document.getElementById('editMakeupViews').value=s.views||0;
   document.getElementById('editMakeupLikes').value=s.likes||0;
   openModal('editMakeupModal');
@@ -6662,7 +6684,7 @@ window.updateMakeup=async function(){
   const module_m=document.getElementById('editMakeupMod').value.trim();
   const mtime_m=document.getElementById('editMakeupTime').value.trim();
   const amphi_m=document.getElementById('editMakeupAmphi').value.trim();
-  await updateDoc(doc(db,'makeup',id),{date,desc,module:module_m,mtime:mtime_m,amphi:amphi_m,group:document.getElementById('editMakeupGroup').value,views:views_m,likes:likes_m});
+  await updateDoc(doc(db,'makeup',id),{date,desc,module:module_m,mtime:mtime_m,amphi:amphi_m,group:document.getElementById('editMakeupGroup').value,sem:document.getElementById('editMakeupSem').value,views:views_m,likes:likes_m});
   closeModal('editMakeupModal');
 };
 
@@ -6833,14 +6855,19 @@ window.saveAnn=async function(){
     document.querySelectorAll('#annTargetList .ann-target-cb:checked').forEach(cb=>targetStudents.push(cb.value));
   }
   const file=document.getElementById('addImgFile').files[0];
+  const now = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const dateVal = document.getElementById('annDateInput').value || `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+  const timeVal = document.getElementById('annTimeInput').value || `${pad(now.getHours())}:${pad(now.getMinutes())}`;
   const saveBtn=document.querySelector('#addAnnModal .modal-btn-save');
   if(saveBtn){ saveBtn.disabled=true; saveBtn.textContent='Saving...'; }
   try{
     const docRef=await addDoc(collection(db,'announcements'),{
       title,text,group,
       type:document.getElementById('annTypeInput').value,
-      date:document.getElementById('annDateInput').value,
-      time:document.getElementById('annTimeInput').value,
+      sem:document.getElementById('annSemInput').value,
+      date: dateVal,
+      time: timeVal,
       order: announcements.length ? Math.min(...announcements.map(a=>a.order??0)) - 1 : 0,
       views:0,likes:0,imgUrl:'',
       postedBy: (currentAdmin && siteSettings.adminAnnounceNames && siteSettings.adminAnnounceNames[currentAdmin.email]) || (currentAdmin ? currentAdmin.name : '') || '',
@@ -6894,7 +6921,8 @@ window.saveMakeup=async function(){
   const desc=document.getElementById('makeupDescInput').value.trim();
   if(!date||!module){alert('Please fill at least date and module.');return;}
   const group=document.getElementById('makeupGroupInput').value;
-  await addDoc(collection(db,'makeup'),{date,module,mtime,amphi,desc,group,order:makeupSessions.length,views:0,likes:0});
+  const sem=document.getElementById('makeupSemInput').value;
+  await addDoc(collection(db,'makeup'),{date,module,mtime,amphi,desc,group,sem,order:makeupSessions.length,views:0,likes:0});
   // ── Broadcast notification to all users ──
   try{
     const preview=[mtime,amphi,desc].filter(Boolean).join(' · ').slice(0,60);
